@@ -5,7 +5,7 @@ actor Cliente
 actor Prestador
 rectangle Serviço {
   Cliente -- (Cadastra Serviço)
-  (checkout) .> (payment) : include
+  (checkout) .> (paym) : include
   (help) .> (checkout) : extends
   (checkout) -- Prestador
 }
