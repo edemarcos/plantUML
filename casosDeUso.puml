@@ -1,20 +1,16 @@
-@startuml
+@startuml Criar Serviço
 left to right direction
 skinparam packageStyle rectangle
 actor Prestador
 actor Cliente
-rectangle Serviço {
-  Cliente -- (Fazer login)
-  (Fazer login) .> (Realizar cadastro) : extends
+rectangle Serviços {
   Cliente -- (Cadastrar serviço)
-  (Cadastrar serviço).>(Fazer login) : extends
-  (Fazer login) -- Prestador
   (Selecionar serviço) -- Prestador
-  (Visualizar serviços) .> (Cadastrar serviço) : extends
+  (Visualizar serviços) .> (Cadastrar serviço) : << include >>
   (Visualizar serviços) -- Prestador 
   Cliente -- (Aceitar Proposta)
   (Enviar proposta) -- Prestador
-  (Selecionar serviço) .> (Enviar proposta) : include 
-  (Aceitar Proposta).> (Enviar proposta) : include 
+  (Selecionar serviço) .> (Enviar proposta) : << include >> 
+  (Aceitar Proposta).> (Enviar proposta) : << include >>
 }
 @enduml
